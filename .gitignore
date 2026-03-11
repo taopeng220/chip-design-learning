@@ -1,0 +1,22 @@
+# 大型克隆项目不提交
+eda-tools/yosys/
+eda-tools/openroad/
+gpu-architecture/tiny-gpu/
+gpu-architecture/NyuziProcessor/
+
+# 编译输出
+*.o
+*.out
+*.vcd
+*.log
+build/
+obj_dir/
+
+# IDE
+.vscode/
+.idea/
+
+# 临时文件
+*~
+*.swp
+*.tmp
