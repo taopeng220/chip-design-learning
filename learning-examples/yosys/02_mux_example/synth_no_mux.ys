@@ -1,0 +1,11 @@
+# 方式2：分解成基本门
+
+read_verilog mux_2to1.v
+hierarchy -top mux_2to1
+
+# 使用 abc 命令映射到基本门（AND/OR/NOT）
+synth -top mux_2to1
+abc -g AND,OR,XOR,NOT
+
+write_verilog mux_with_gates.v
+stat

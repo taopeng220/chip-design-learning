@@ -1,0 +1,7 @@
+# 方式1：保留 MUX 结构
+
+read_verilog mux_2to1.v
+hierarchy -top mux_2to1
+synth -top mux_2to1
+write_verilog mux_with_mux.v
+stat
