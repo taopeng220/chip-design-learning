@@ -1,0 +1,18 @@
+# Yosys 综合脚本 (.ys 文件)
+# 类似于 FusionCompiler 的 TCL 脚本
+
+# 1. 读入 RTL 设计 (相当于 FC 的 read_verilog)
+read_verilog adder.v
+
+# 2. 指定顶层模块 (相当于 FC 的 current_design)
+hierarchy -top adder_4bit
+
+# 3. 进行综合 (相当于 FC 的 compile_ultra)
+# synth 是 Yosys 的通用综合命令
+synth -top adder_4bit
+
+# 4. 输出综合后的网表
+write_verilog adder_synth.v
+
+# 5. 查看综合报告
+stat

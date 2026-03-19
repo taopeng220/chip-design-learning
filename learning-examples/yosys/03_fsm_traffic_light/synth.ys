@@ -1,0 +1,30 @@
+# 交通灯 FSM 综合脚本
+
+# 1. 读入 RTL
+read_verilog traffic_light.v
+
+# 2. 设置顶层
+hierarchy -top traffic_light
+
+# 3. FSM 相关处理
+# fsm_detect: 检测并标记 FSM
+# fsm_extract: 提取 FSM（识别状态寄存器、次态逻辑、输出逻辑）
+# fsm_opt: 优化 FSM（状态最小化、编码优化）
+fsm_detect
+fsm_extract
+fsm_opt
+
+# 查看 FSM 信息（在综合前）
+fsm_info
+
+# 4. 综合
+synth -top traffic_light
+
+# 5. 输出网表
+write_verilog traffic_light_synth.v
+
+# 6. 统计
+stat
+
+# 7. 显示设计层次
+show -format dot -prefix traffic_light_diagram
